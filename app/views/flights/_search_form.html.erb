@@ -1,0 +1,36 @@
+<%= form_with(url: "/flights", method: "get", local: true) do %>
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <div class="field">
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <%= select_tag(:departure_airport_id, options_for_select(@airport_options)) %>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <%= select_tag(:arrival_airport_id, options_for_select(@airport_options)) %>
+            </div>
+          </div>
+        </div>
+
+        <div class="field">
+          <div class="control is-expanded">
+            <div class="select is-fullwidth">
+              <%= select_tag(:start_datetime, options_for_select(@date_options)) %>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+
+    <div class="field is-grouped is-grouped-right">
+      <div class="control">
+        <%= submit_tag("Show flights", class: "button is-dark is-outlined") %>
+      </div>
+    </div>
+<% end %>
