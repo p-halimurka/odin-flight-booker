@@ -1,4 +1,11 @@
-<% form_with url: "order/new"%>
-  <% @available_flights.each do |flight| %>
+<% form_for @available_flights do |f|  %>
+  <div class="columns is-vcentered is-centered">
+      <div class="column is-narrow has-text-centered">
+          <%= f.collection_radio_buttons :flight_id, Flight.all, :id %>
+            <%= f.submit %>
+      </div>
+  </div>
+<% end %>
+
 
 
