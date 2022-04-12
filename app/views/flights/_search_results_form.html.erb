@@ -1,11 +1,37 @@
-<% form_for @available_flights do |f|  %>
-  <div class="columns is-vcentered is-centered">
-      <div class="column is-narrow has-text-centered">
-          <%= f.collection_radio_buttons :flight_id, Flight.all, :id %>
-            <%= f.submit %>
-      </div>
-  </div>
-<% end %>
+    <%= form_with url: "orders/new", method: "get", local: true do |f|  %>
+      <% @available_flights.each do |flight| %>
+        <% from_airport = flight.departure_airport.name %>
+        <% to_airport = flight.arrival_airport.name %>
+        <% start_time = flight.start_datetime.strftime('%H:%M')  %>
+        <% start_date = flight.start_datetime.strftime('%B %d, %Y')%>
+        <% end_time = (flight.start_datetime + (flight.flight_duration / 60).to_i.hours).strftime('%H:%M')%>
+
+        <div class="columns is-vcentered is-centered">
+            <div class="column is-narrow has-text-centered">
+                <%= radio_button_tag(:flight, flight.id, { checked: true }) %>
+            </div>
+            <div class="column is-three-fifths">
+              <div class="box">
+                <div class="columns">
+                  <div class="column has-text-centered">
+                    <%= from_airport %>
+                    <%= start_time %><br/>
+                    <div class="column has-text-centered">
+                        Nonstop<br/>
+                        <%= (flight.flight_duration/60) %> hours
+                    </div>
+                    <%= to_airport %>
+                    <%= end_time %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      <% end %>
+      <%= hidden_field_tag :passengers_number, params[:passengers_number] %>
+      <%= f.submit "Continue to passenger details", class: "button is-dark is-outlined" %>
+    <% end %>
+
 
 
 

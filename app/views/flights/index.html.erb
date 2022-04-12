@@ -12,7 +12,7 @@
           <%= render "search_form"%>
        </div>
        
-      <% if @available_flights.any? %>
+      <% if @available_flights.to_a.any? %>
            <div class="column is-half has-text-left">
                 <%= render "search_results_form"%>
            </div>
