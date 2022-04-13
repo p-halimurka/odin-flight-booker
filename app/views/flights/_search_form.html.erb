@@ -4,7 +4,7 @@
         <div class="field">
           <div class="control is-expanded">
             <div class="select is-fullwidth">
-              <%= select_tag(:departure_airport_id, options_for_select(@airport_options, selected: params[:departure_airport_id]), { prompt: 'From?' }) %>
+              <%= select_tag(:departure_airport_id, options_for_select(@airport_options, selected: params[:departure_airport_id]), { prompt: 'From' }) %>
             </div>
           </div>
         </div>
@@ -12,7 +12,7 @@
         <div class="field">
           <div class="control is-expanded">
             <div class="select is-fullwidth">
-              <%= select_tag(:arrival_airport_id, options_for_select(@airport_options, selected: params[:arrival_airport_id]), { prompt: 'To?' } ) %>
+              <%= select_tag(:arrival_airport_id, options_for_select(@airport_options, selected: params[:arrival_airport_id]), { prompt: 'To' } ) %>
             </div>
           </div>
         </div>
@@ -20,7 +20,7 @@
         <div class="field">
           <div class="control is-expanded">
             <div class="select is-fullwidth">
-              <%= select_tag(:passengers_number, options_for_select((1..4), selected: params[:passengers_number]) ) %>
+              <%= select_tag(:passengers_number, options_for_select((1..4), selected: params[:passengers_number]), { prompt: 'Number of passengers' }) %>
             </div>
           </div>
         </div>
@@ -28,7 +28,7 @@
         <div class="field">
           <div class="control is-expanded">
             <div class="select is-fullwidth">
-              <%= select_tag(:day, options_for_select(@day_options), selected: params[:day]) %>
+              <%= select_tag(:day, options_for_select(@day_options, selected: params[:day])) %>
             </div>
           </div>
         </div>
@@ -36,7 +36,7 @@
         <div class="field">
           <div class="control is-expanded">
             <div class="select is-fullwidth">
-              <%= select_tag(:month, options_for_select(@month_options), selected: params[:month]) %>
+              <%= select_tag(:month, options_for_select(@month_options, selected: params[:month])) %>
             </div>
           </div>
         </div>
@@ -44,7 +44,7 @@
         <div class="field">
           <div class="control is-expanded">
             <div class="select is-fullwidth">
-              <%= select_tag(:year, options_for_select(@year_options), selected: params[:year]) %>
+              <%= select_tag(:year, options_for_select(@year_options, selected: params[:year])) %>
             </div>
           </div>
         </div>
