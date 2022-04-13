@@ -14,8 +14,12 @@
        
       <% if @available_flights.to_a.any? %>
            <div class="column is-half has-text-left">
+             <h2 class="title is-4">Flight from <%= Airport.find(params[:departure_airport_id]).name %> to <%= Airport.find(params[:arrival_airport_id]).name %></h2>
+             <h2 class="subtitle"> <%= @selected_date.strftime('%B %d, %Y')%></h2>
                 <%= render "search_results_form"%>
            </div>
+      <% else %>     
+          <p>There are no available flights on the selected date</p>
       <% end %>
       </div>
     </div>

@@ -1,0 +1,30 @@
+<%= form_with model: @order, local: true do | order_form | %>
+    <% @passengers_count.times do | i |%>
+      <%= order_form.fields_for :passengers do | passenger_info | %>
+        <div class="field is-horizontal">
+          <div class="field-label is-normal">
+            <label class="label">
+              <%= "Passenger #{i + 1}" %><br/>
+            </label>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control-is-expanded">
+                  <%= passenger_info.text_field :full_name, placeholder: "Passenger's name", required: true, class: "input" %>
+              </p>
+            </div>
+            <div class="field">
+                  <%= passenger_info.email_field :email, placeholder: "name@email.com", required: true, class: "input"%>
+            </div>
+          </div>
+        </div>
+        <br>
+      <% end %>
+    <% end %>
+    <%= order_form.hidden_field :flight_id, value: params[:flight] %>
+    <div class="field is-grouped is-grouped-right">
+      <div class="control">
+          <%= order_form.submit "Purchase ticket", class: "button is-dark is-outlined" %>
+      </div>
+    </div> 
+ <% end %>

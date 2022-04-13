@@ -1,4 +1,5 @@
 class FlightsController < ApplicationController
+  include FlightsHelper
   def index
     @flights = Flight.all
     @airport_options = Airport.all.map { | a | [a.name, a.id] }

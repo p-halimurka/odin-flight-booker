@@ -1,1 +1,25 @@
-<p>Hello new order</p>
+<% from_airport = @chosen_flight.departure_airport.name %>
+<% to_airport = @chosen_flight.arrival_airport.name %>
+<% selected_date = @chosen_flight.start_datetime.strftime('%B %d, %Y') %>
+<% scheduled_time = @chosen_flight.start_datetime.strftime('%H:%M') %>
+<% arrival_time = (@chosen_flight.start_datetime + (@chosen_flight.flight_duration / 60).to_i.hours).strftime('%H:%M') %>
+<section class="hero is-fullweight is-light is-bold">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <div class="column is-8 is-variable">
+        <div class="column has-text-left">
+          <h1 class="title">
+            Your flight summary:
+          </h1>
+          <h2>
+            <%= selected_date %> | <%= from_airport %> - <%= to_airport %> | <%= scheduled_time %> - <%= arrival_time %>
+          </h2>
+        </div>
+
+        <div class="column is-three-fifths has-text-left">
+          <%= render "new_order_form" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
