@@ -208,7 +208,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap (>= 1.4.4)
-  bulma-rails (~> 0.9.3)
+  bulma-rails
   byebug
   capybara (>= 3.26)
   jbuilder (~> 2.7)

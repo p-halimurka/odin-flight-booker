@@ -14,13 +14,15 @@
               <div class="box">
                 <div class="columns">
                   <div class="column has-text-centered">
-                    <%= from_airport %>
-                    <%= start_time %><br/>
-                    <div class="column has-text-centered">
+                    <%= from_airport %><br/>
+                    <%= start_time %>
+                  </div>
+                  <div class="column has-text-centered">
                         Nonstop<br/>
                         <%= (flight.flight_duration/60) %> hours
-                    </div>
-                    <%= to_airport %>
+                  </div>
+                  <div class="column has-text-centered">
+                    <%= to_airport %><br/>
                     <%= end_time %>
                   </div>
                 </div>
