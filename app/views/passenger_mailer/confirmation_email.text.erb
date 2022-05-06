@@ -1,0 +1,13 @@
+Hello, dear client
+===============================================
+
+You have successfully booked ticket to flight from <%= @flight.departure_airport.name%> to <%= @flight.arrival_airport.name%>
+Visit <%= @url %> to see order details.
+To pay for tickets, follow this link: <%# @url %>.
+
+Passengers
+<% @order.passengers.each do | passenger |%>
+  <%= passenger.full_name %>  <%= passenger.email%> 
+<% end %>
+
+Thank you for entrusting us with your safety and have a great day!

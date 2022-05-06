@@ -1,10 +1,10 @@
 <%= form_with model: @order, local: true do | order_form | %>
-    <% @passengers_count.times do | i |%>
+    <%# @passengers_count.times do | i |%>
       <%= order_form.fields_for :passengers do | passenger_info | %>
         <div class="field is-horizontal">
           <div class="field-label is-normal">
             <label class="label">
-              <%= "Passenger #{i + 1}" %><br/>
+              <%= "Passenger #{passenger_info.index + 1}" %><br/>
             </label>
           </div>
           <div class="field-body">
@@ -20,7 +20,7 @@
         </div>
         <br>
       <% end %>
-    <% end %>
+    <%# end %>
     <%= order_form.hidden_field :flight_id, value: params[:flight] %>
     <div class="field is-grouped is-grouped-right">
       <div class="control">

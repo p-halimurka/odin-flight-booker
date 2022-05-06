@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     if @order.save
+      PassengerMailer.with(order: @order).confirmation_email.deliver_now
       flash[:notice] = "Order successfully made!"
       redirect_to order_path(@order)
     else
